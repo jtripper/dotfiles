@@ -1,0 +1,73 @@
+#!/usr/bin/python2
+import os
+import glob
+
+def time_as_str(hours):
+    seconds = float(hours * 60 * 60)
+    hours   = int(hours)
+    minutes = int(seconds / 60  % 60)
+    seconds = int(seconds % 60)
+    return "%.2d:%.2d:%.2d" % (hours, minutes, seconds)
+
+def read_file(fname, strip=False):
+    try:
+        data = open(fname)
+        data = data.read()
+        if strip: data = data.rstrip()
+        return data
+    except IOError:
+        return ""
+
+def find_battery(dirs):
+    for dir in dirs:
+        battery = read_file("%s/type" % dir)
+        if "Battery" in battery:
+            return dir
+
+def uevent(dir):
+    results = {}
+    for line in read_file("%s/uevent" % dir).split():
+        line = line.split("=")
+        if len(line) < 2:
+            continue
+        results[line[0]] = "=".join(line[1:]).rstrip()
+    return results
+
+statuses = {
+    "Charging" : "Plugged in:",
+    "Unknown"  : "Plugged in:",
+    "Full"     : "Plugged in:",
+}
+
+os.chdir("/sys/class/power_supply")
+battery            = find_battery(glob.glob("*/"))
+battery_stats      = uevent(battery)
+
+if battery_stats["POWER_SUPPLY_STATUS"] in statuses:
+    battery_plugged_in = statuses[battery_stats["POWER_SUPPLY_STATUS"]]
+else:
+    battery_plugged_in = "On battery:"
+
+energy_now     = float(battery_stats["POWER_SUPPLY_ENERGY_NOW"])
+energy_full    = float(battery_stats["POWER_SUPPLY_ENERGY_FULL"])
+battery_charge = (energy_now / energy_full) * 100
+
+power_now      = float(battery_stats["POWER_SUPPLY_POWER_NOW"])
+
+time_until_charged = ""
+if power_now == 0:
+    time_until_charged = "charged"
+elif battery_plugged_in == "On battery:":
+    time_until_charged = energy_now / power_now
+else:
+    time_until_charged = (energy_full - energy_now ) / power_now
+time_until_charged = time_as_str(time_until_charged)
+
+if battery_charge < 15:
+  COLOR = "\005{R}"
+elif battery_charge < 30:
+  COLOR = "\005{Y}"
+else:
+  COLOR = "\005{B}"
+
+print "%s %s%d%%\005{g} (%s)" % (battery_plugged_in, COLOR, battery_charge, time_until_charged)
