@@ -61,7 +61,9 @@ elif battery_plugged_in == "On battery:":
     time_until_charged = energy_now / power_now
 else:
     time_until_charged = (energy_full - energy_now ) / power_now
-time_until_charged = time_as_str(time_until_charged)
+
+if not isinstance(time_until_charged, str):
+    time_until_charged = time_as_str(time_until_charged)
 
 if battery_charge < 15:
   COLOR = "\005{R}"
