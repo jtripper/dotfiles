@@ -87,14 +87,14 @@ abstracts     = {
   whois                = "%#    $[8]0 = $1-;";
 
   # notices
-  ownnotice            = "%NNote n = %Mnew%n $0 ($1-) ";
+  ownnotice            = "[%r$0%K(%R$1-%K)]%n ";
   notice               = "%M$*%n ";
   pubnotice_channel    = " %N($*)";
   pvtnotice_host       = " %N($*)";
   servernotice         = " %N($*)";
 
   # CTCPs
-  ownctcp              = "%NCTCP c = %Mnew%n $0 ($1-) ";
+  ownctcp              = "[%r$0%K(%R$1-%K)] ";
   ctcp                 = "%N$*%n";
 
   # wallops
