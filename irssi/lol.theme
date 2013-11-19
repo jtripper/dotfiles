@@ -2,7 +2,6 @@
 #
 # Beastie's irssi theme.
 # Thanks to crshd.
-
 default_color = "-1";
 info_eol      = "false";
 
@@ -32,7 +31,7 @@ abstracts     = {
 
   ########### messages #################################
   # the basic styling of how to print message, $0 = nick mode, $1 = nick
-  msgnick              = "%K%N $1 %K|  %N";
+  msgnick              = "%K%N $1 %K|  %N%|";
 
   # $0 = nick mode, $1 = nick
   ownmsgnick           = "{msgnick $0 $1}";
@@ -64,10 +63,10 @@ abstracts     = {
 
   ########## Actions (/ME stuff) ########################
   # used internally by this theme
-  action_core          = " %n$* |";
+  action_core          = " %n$* |%| ";
 
   # generic one that's used by most actions
-  action               = "{action_core $*} ";
+  action               = "{action_core $*}";
 
   # own action, both private/public
   ownaction            = "{action %r$*}";
