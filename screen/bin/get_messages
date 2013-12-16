@@ -1,2 +1,0 @@
-#!/bin/bash
-autossh -M 1025 c "tail -f ~/.irssi/messages" |while read name; do echo $name >> ~/.messages; done &
