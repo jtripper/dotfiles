@@ -1,0 +1,5 @@
+backtick 101 10 10 battery_status
+backtick 102 600 600 current_ip
+backtick 103 5 5 output_messages
+backtick 104 1 1 now_playing
+hardstatus alwayslastline '%{= G} %{B}[ %{W}%102` %{B}] [ %103` ] %= [ %104` ] %= [ %{g}%101` %{B}] [ %{W}%c:%s %{B}] '

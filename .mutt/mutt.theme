@@ -1,0 +1,36 @@
+# mutt theme by jtripper
+
+color index   yellow      default ~U
+color index   green       default ~R
+color index   brightcyan  default ~G
+color index   cyan        default ~g
+
+color markers white  default
+color search  yellow black
+color tree    red    default
+
+color normal  white  default
+color quoted  cyan   default
+color quoted1 yellow default
+color quoted2 red    default
+color quoted3 green  default
+color quoted4 cyan   default
+color quoted5 yellow default
+color quoted6 red    default
+color quoted7 green  default
+
+color attachment white default
+color message    black default
+
+color hdrdefault black        default
+color header     yellow       default "^date:"
+color header     yellow       default "^from:"
+color header     yellow       default "^to:"
+color header     yellow       default "^cc:"
+color header     yellow       default "^reply-to:"
+color header     brightyellow default "^subject:"
+
+color body	 red          default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+color body	 red          default https?://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
+
+color indicator  red          black
