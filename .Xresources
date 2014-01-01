@@ -1,0 +1,48 @@
+urxvt*loginShell: true
+urxvt*depth: 32
+urxvt*foreground: rgb:cc/b8/21
+urxvt*background: rgba:0000/0000/0000/dddd
+urxvt*font: xft:Inconsolata Medium:style=semibold:pixelsize=14:antialias=true:hinting=slight
+urxvt*termName: xterm-256color
+urxvt*locale: true
+urxvt*metaSendsEscape: true
+urxvt*saveLines: 4096
+urxvt*scrollBar: false
+urxvt*internalBorder: 0
+
+urxvt.perl-ext-common: default,matcher
+urxvt.url-launcher: /usr/bin/firefox
+urxvt.matcher.button: 1
+
+! black
+urxvt*color0: rgb:2e/34/36 
+! grey
+urxvt*color8: rgb:55/57/53 
+! dark red
+urxvt*color4: rgb:34/65/a4 
+! red
+urxvt*color12: rgb:72/9f/cf 
+! dark green
+urxvt*color2: rgb:4e/9a/06 
+! bright green
+urxvt*color10: rgb:8a/e2/34 
+! dark yellow
+urxvt*color6: rgb:06/98/9a 
+! bright yellow
+urxvt*color14: rgb:34/e2/e2 
+! dark blue
+urxvt*color1: rgb:cc/00/00 
+! bright blue
+urxvt*color9: rgb:ef/29/29 
+! dark purple
+urxvt*color5: rgb:75/50/7b 
+! bright purple
+urxvt*color13: rgb:ad/7f/a8 
+! dark cyan
+urxvt*color3: rgb:c4/a0/00 
+! bright cyan
+urxvt*color11: rgb:fc/e9/4f 
+! light gray
+urxvt*color7: rgb:d3/d7/cf 
+! white
+urxvt*color15: rgb:ee/ee/ec
